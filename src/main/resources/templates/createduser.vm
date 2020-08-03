@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="public/css/app.css">
-    <
 </head>
 <body>
     #parse ("common/header.vm")
@@ -21,15 +20,17 @@
         <li>$user.getName()</li>
     #end
 </ul>
-<form method="POST" action="http://localhost:8080/rest/registration">
-    <p><input class="text-field" type="text" value="test" placeholder="Tomi Lekar" name="name" required></p>
-    <p><input class="text-field" type="password" value="test" placeholder="password" name="password" required></p>
-    <p><input class="text-field" type="email" value="test@test.de" placeholder="tomi.lekar@outlook.de" name="email"
-              required></p>
-    <p><input class="text-field" type="text" value="test" placeholder="+49 123 123" name="number" required></p>
-    <p><input class="btn btn-default" type="submit" value="Submit"></p>
+<form>
+    <p><input class="text-field" type="text" value="$user.getName()" placeholder="Tomi Lekar" name="name" disabled></p>
+    <p><input class="text-field" type="password" value="$user.getPassword()" placeholder="password" name="password"
+              disabled></p>
+    <p><input class="text-field" type="email" value="$user.getEmail()" placeholder="tomi.lekar@outlook.de" name="email"
+              disabled></p>
+    <p><input class="text-field" type="text" value="$user.getNumber()" placeholder="+49 123 123" name="number" disabled>
+    </p>
 </form>
     #parse ("common/registredUsers.vm")
     #parse ("common/footer.vm")
+
 </body>
 </html>

@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8"></meta>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"></meta>
+<link href="./css/bootstrap.css" rel="stylesheet" th:href="@{./css/bootstrap.css}"
+      type="text/css"></link>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="fragments/header"></div>
+
+<form action="#" class="form-group" method="post" th:action="@{/register}" th:object="${user}">
+    <input style="display: none" th:field="*{id}" type="text" value="Tomi Test Lekar"/>
+    <p>Name: <input class="form-control" th:field="*{name}" type="text"/></p>
+    <p th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Name Error></p>
+    <p>Password: <input class="form-control" th:field="*{password}" type="password" value="Testpw"/></p>
+    <p th:errors="*{password}" th:if="${#fields.hasErrors('password')}">Name Error></p>
+    <p>Email: <input class="form-control" th:field="*{email}" type="email" value="testemail@outlook.de"/></p>
+    <p th:errors="*{email}" th:if="${#fields.hasErrors('email')}">Name Error></p>
+    <p>Number: <input class="form-control" th:field="*{number}" type="text" value="123133133"/></p>
+    <p th:errors="*{number}" th:if="${#fields.hasErrors('number')}">Name Error></p>
+    <p><input class="btn-success" type="submit" value="Submit"/> <input class="btn-danger" type="reset" value="Reset"/>
+    </p>
+</form>
+
+<div th:replace="fragments/footer"></div>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<table class="table-view">
+    <thead>
+    <tr class="table-row-cell">
+        <td>User</td>
+    </tr>
+    </thead>
+    <tbody>
+        #foreach($user in $users)
+        <tr>
+            <td>$user.getName()</td>
+        </tr>
+        #end
+    </tbody>
+</table>
